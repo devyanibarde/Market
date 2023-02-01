@@ -1,0 +1,25 @@
+{% extends 'FIRSTAPPLICATION/common.html' %}
+{% load static %}
+
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+    <body>
+        <h1>Customers:</h1>
+        <hr>
+        <br />
+        {% block body_block %}
+        {% if custdata %}
+            {% for c in custdata %}
+                <h3>Name : {{ c.name }}</h3>
+                <p>Phone No. : {{ c.phn }}</p>
+                <p>Address : {{ c.addr }}</p>
+                <hr>
+            {% endfor %}
+        {% else %}
+            <h3>No Customers Found</h3>
+        {% endif %}
+        {% endblock %}
+    </body>
+</html>
